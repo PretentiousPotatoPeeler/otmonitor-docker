@@ -19,7 +19,6 @@ RUN wget https://github.com/hvxl/otmonitor/archive/master.zip && \
 
 FROM ubuntu:latest
 WORKDIR /root
-COPY --from=0 /app/otmonitor-master/otmonitor .
-COPY $PWD/otmonitor.conf /root/config/otmonitor.conf
-CMD ["./otmonitor", "--daemon", "-f ./config/otmonitor.conf"]
+COPY --from=0 /app/otmonitor-master/otmonitor /usr/bin
+CMD ["otmonitor", "--daemon", "-f /config/otmonitor.conf"]
 

@@ -10,7 +10,7 @@ The latest pre-build version of otmonitor on [otgw.tclcode.com](http://otgw.tclc
 
 ```bash
 docker build -t otmonitor .
-docker run --name otmonitor -d otmonitor
+docker run --name otmonitor -v $PWD/otmonitor.conf:/config/otmonitor.conf -d otmonitor
 ```
 
 Config file example is in the repo.

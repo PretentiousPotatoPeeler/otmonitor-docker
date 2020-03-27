@@ -10,10 +10,19 @@ The latest pre-build version of otmonitor on [otgw.tclcode.com](http://otgw.tclc
 
 ```bash
 docker build -t otmonitor .
-docker run --name otmonitor -v $PWD/otmonitor.conf:/config/otmonitor.conf -d otmonitor
+docker run --name otmonitor -v $PWD/otmonitor.conf:/config/otmonitor.conf -p 8080:8080 -d otmonitor
 ```
 
 Config file example is in the repo.
+
+### Raspberry Pi
+
+To build and run on Raspberry Pi:
+```bash
+docker build -t otmonitor -f Dockerfile-arm .
+docker run --name otmonitor -v $PWD/otmonitor.conf:/config/otmonitor.conf -p 8080:8080 -d otmonitor
+```
+
 
 ## Built With
 

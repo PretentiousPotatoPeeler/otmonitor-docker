@@ -1,0 +1,128 @@
+clock {
+  year false
+  date false
+  auto false
+}
+mqtt {
+  devicetype central_heating
+  deviceid {}
+  retransmit 10
+  format json1
+  port 1883
+  qos 1
+  keepalive 120
+  enable true
+  messages false
+  client otmonitor
+  broker localhost
+  username {}
+  password {}
+}
+connection {
+  device {}
+  type tcp
+  port 6638
+  host 192.168.1.107
+  enable true
+}
+server {
+  relay false
+  enable false
+  port 7686
+}
+datalog {
+  append false
+  file /root/otdata.txt
+  enable false
+  itemlist {
+    flame
+    dhwmode
+    chmode
+    dhwenable
+    diag
+    fault
+    outside
+    temperature
+    setpoint
+    modulation
+    boilertemp
+    returntemp
+    controlsp
+    dhwsetpoint
+    chwsetpoint
+    timestamp
+  }
+  interval 30000
+}
+web {
+  sslport 0
+  graphlegend false
+  theme default
+  enable true
+  sslprotocols tls1,tls1.1,tls1.2
+  nopass false
+  certonly false
+  port 8080
+}
+sms {
+  enable false
+  ventilationfault false
+  phonenumber {}
+  route {}
+  sender {}
+  password c2VjcmV0
+  provider VoipPlanet
+  account {}
+  pressure false
+  solarfault false
+  roomcold true
+  watchdogtimer false
+  boilerfault true
+  commproblem false
+}
+email {
+  password c2VjcmV0
+  server {}
+  pressure true
+  roomcold true
+  boilerfault true
+  watchdogtimer true
+  solarfault true
+  commproblem true
+  port 25
+  enable false
+  secure TLS
+  recipient {}
+  user {}
+  sender {}
+  ventilationfault true
+}
+logfile {
+  pattern otlog-%Y%m%d.txt
+  directory /root
+  enable false
+}
+tspeak {
+  key {}
+  enable false
+  interval 120
+  field1 temperature
+  field2 setpoint
+  field3 boilertemp
+  field4 returntemp
+  field5 controlsp
+  field6 modulation
+  field7 {}
+  field8 {}
+}
+alert {
+  pressurelow 1.5
+  roomcold 14
+  pressurehigh 2.0
+}
+view {
+  tab graph
+  order increasing
+  sort name
+  bitflags false
+}

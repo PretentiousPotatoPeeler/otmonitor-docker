@@ -18,7 +18,6 @@ RUN wget https://github.com/hvxl/otmonitor/archive/master.zip && \
       chmod 777 otmonitor
 
 FROM ubuntu:latest
-WORKDIR /root
-COPY --from=0 /app/otmonitor-master/otmonitor /usr/bin
-CMD ["otmonitor", "--daemon", "-f /config/otmonitor.conf"]
-
+WORKDIR /app
+COPY --from=0 /app/otmonitor-master/otmonitor /app/
+CMD ["/app/otmonitor", "--daemon", "-f", "/config/otmonitor.conf"]
